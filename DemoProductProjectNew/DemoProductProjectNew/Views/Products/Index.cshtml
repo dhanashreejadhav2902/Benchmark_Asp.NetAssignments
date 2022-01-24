@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+<h2>Products</h2>
+
+<a href="@Url.Action("Create","Products")">Add Products</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in ViewBag.p)
+        {
+            <tr>
+                <td>@item.pid</td>
+                <td><a href="/products/details/@item.pid">@item.pname</a></td>
+                <td>@item.price</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

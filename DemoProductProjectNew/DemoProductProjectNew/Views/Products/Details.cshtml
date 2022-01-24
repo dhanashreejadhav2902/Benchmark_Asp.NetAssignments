@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tr>
+        <th>Product Id</th>
+        <td>@ViewBag.MatchingProduct.pid</td>
+    </tr>
+
+    <tr>
+        <th>Product Name</th>
+        <td>@ViewBag.MatchingProduct.pname</td>
+    </tr>
+
+    <tr>
+        <th>Product Price</th>
+        <td>@ViewBag.MatchingProduct.price</td>
+    </tr>
+
+</table>
+
