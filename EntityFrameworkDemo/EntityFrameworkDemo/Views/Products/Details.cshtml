@@ -1,0 +1,47 @@
+﻿@model EntityFrameworkDemo.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tr>
+        <th>Product ID</th>
+        <td>@Model.pid</td>
+    </tr>
+
+    <tr>
+        <th>Product Name</th>
+        <td>@Model.pname</td>
+    </tr>
+
+    <tr>
+        <th>Price</th>
+        <td>@Model.price</td>
+    </tr>
+
+    <tr>
+        <th>Date Of Purchase</th>
+        <td>@Model.dateofpurchase</td>
+    </tr>
+
+    <tr>
+        <th>Available Status</th>
+        <td>@Model.availablestatus</td>
+    </tr>
+
+    <tr>
+        <th>Category ID</th>
+        <td>@Model.cid</td>
+    </tr>
+
+    <tr>
+        <th>Brand ID</th>
+        <td>@Model.bid</td>
+    </tr>
+
+</table>
+
+<a href="/products/index">Back To Products</a>
+

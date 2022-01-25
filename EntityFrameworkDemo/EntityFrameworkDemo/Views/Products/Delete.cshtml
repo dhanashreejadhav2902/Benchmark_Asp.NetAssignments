@@ -1,0 +1,28 @@
+﻿@model EntityFrameworkDemo.Models.Product
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete Product</h2>
+<form action="/products/delete/@Model.pid" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="pname">Product Name</label>
+            <input type="hidden" name="pid" value="@Model.pid" />
+            <input type="text" class="form-control" id="pname" name="pname" value="@Model.pname" placeholder="enter product name here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="price">Product Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="@Model.price" placeholder="enter product price here" />
+        </div>
+
+       
+    </div>
+    <br />
+    Are You sure To delete?
+    <button type="submit" class="btn btn-danger">Delete Product</button>
+    <a href="/products/index" class="btn btn-danger">Cancel</a>
+</form>
+ 
