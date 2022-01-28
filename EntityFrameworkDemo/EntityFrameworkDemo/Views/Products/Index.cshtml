@@ -8,39 +8,223 @@
 <h2>Products</h2>
 <a href="/products/create">Add Products</a>
 <form class="form-check-inline text-center" action="/products/index">
-<label for="search" class="m-1"></label>
-    <input type="search" class="form-control m-1" id="search" name="search" value="@ViewBag.Search" placeholder="Search here"/>
+    <label for="search" class="m-1"></label>
+    <input type="search" class="form-control m-1" id="search" name="search" value="@ViewBag.Search" placeholder="Search here" />
     <button type="submit" class="btn btn-info">Search</button>
 </form>
 
 
 <table class="table">
-    <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Price</th>
-        <th>Date Of Purchase</th>
-        <th>Availability Status</th>
-        <th>Category ID</th>
-        <th>Brand ID</th>
+    <tr class="table-secondary">
+
+        <th style="width:5%">Photo</th>
+
+        <th style="width:5%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=pid&icon=fa-sort-asc&pageno=1">Product ID</a>
+                if (ViewBag.sortcolm == "pid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=pid&icon=fa-sort-desc&pageno=1">Product ID</a>
+                if (ViewBag.sortcolm == "pid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
+
+        <th style="width:13%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=pname&icon=fa-sort-asc&pageno=1">Product Name</a>
+                if (ViewBag.sortcolm == "pname")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=pname&icon=fa-sort-desc&pageno=1">Product Name</a>
+                if (ViewBag.sortcolm == "pname")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
+        <th style="width:10%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=price&icon=fa-sort-asc&pageno=1">Price</a>
+                if (ViewBag.sortcolm == "price")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=price&icon=fa-sort-desc&pageno=1">Price</a>
+                if (ViewBag.sortcolm == "price")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+        <th style="width:12%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=dateofpurchase&icon=fa-sort-asc&pageno=1">Date Of Purchase</a>
+                if (ViewBag.sortcolm == "dateofpurchase")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=dateofpurchase&icon=fa-sort-desc&pageno=1">Date Of Purchase</a>
+                if (ViewBag.sortcolm == "dateofpurchase")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
+
+        <th style="width:10%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=availablestatus&icon=fa-sort-asc&pageno=1">Availability Status</a>
+                if (ViewBag.sortcolm == "availablestatus")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=availablestatus&icon=fa-sort-desc&pageno=1">Availability Status</a>
+                if (ViewBag.sortcolm == "availablestatus")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
+
+
+        <th style="width:10%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=cid&icon=fa-sort-asc&pageno=1">Category</a>
+                if (ViewBag.sortcolm == "cid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=cid&icon=fa-sort-desc&pageno=1">Category</a>
+                if (ViewBag.sortcolm == "cid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
+
+        <th style="width:10%">
+            @if (ViewBag.icon == "fa-sort-desc")
+            {
+                <a href="/products/index?sortcolm=bid&icon=fa-sort-asc&pageno=1">Brand</a>
+                if (ViewBag.sortcolm == "bid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+            else
+            {
+                <a href="/products/index?sortcolm=bid&icon=fa-sort-desc&pageno=1">Brand</a>
+                if (ViewBag.sortcolm == "bid")
+                {
+                    <i class="fa @ViewBag.icon"></i>
+                }
+            }
+        </th>
+
         <th>Option</th>
     </tr>
     @foreach (var item in Model)
     {
 <tr>
+    <!--<td><img src="data:photo;base64,@item.photo" /></td>-->
     <td>@item.pid</td>
     <td>@item.pname</td>
     <td>@item.price.Value.ToString("C")</td>
     <td>@item.dateofpurchase.Value.ToString("d/M/yyyy")</td>
     <td>@item.availablestatus</td>
-    <td>@item.cid</td>
-    <td>@item.bid</td>
-    <td><a href="/products/details/@item.pid">Details</a></td>
-    <td><a href="/products/edit/@item.pid">Edit</a></td>
-    <td><a href="/products/delete/@item.pid">Delete</a></td>
+    <td>@item.Category.cname</td>
+    <td>@item.Brand.bname</td>
+    <td>
+        <a href="/products/details/@item.pid">Details </a>|
+        <a href="/products/edit/@item.pid">Edit </a>|
+        <a href="/products/delete/@item.pid">Delete</a>
+    </td>
 </tr>
     }
 
-    
-</table>
+    <tr>
+        <td colspan="9">
+            @{ 
+                int prevpage = ViewBag.pageno - 1;
+                if (prevpage <= 0) {
+                    prevpage = 1;
+                }
 
+                int nextpage = ViewBag.pageno + 1;
+                if (nextpage >ViewBag.totalpage)
+                {
+                    nextpage = ViewBag.totalpage;
+                }
+
+
+
+}
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="/products/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@prevpage">Prev</a>
+                </li>
+
+                @for (int i = 0; i < ViewBag.totalpage; i++)
+                {
+
+                    if ((i + 1) == ViewBag.pageno)
+                    {
+
+                        <li class="page-item active">
+                            <a class="page-link" href="/products/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@(i+1)">@(i+1)</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/products/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@(i+1)">@(i+1)</a>
+                        </li>
+                    }
+                }
+
+                <li class="page-item">
+                    <a class="page-link" href="/products/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@nextpage">Next</a>
+                </li>
+            </ul>
+
+            
+        </td>
+    </tr>
+
+
+</table>

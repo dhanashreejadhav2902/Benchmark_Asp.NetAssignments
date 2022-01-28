@@ -21,6 +21,7 @@ namespace EntityFrameworkDemo.Models
         public string availablestatus { get; set; }
         public Nullable<int> cid { get; set; }
         public Nullable<int> bid { get; set; }
+        public string photo { get; set; }
     
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }

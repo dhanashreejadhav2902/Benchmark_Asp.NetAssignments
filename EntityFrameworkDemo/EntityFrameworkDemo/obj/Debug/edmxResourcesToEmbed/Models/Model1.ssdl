@@ -25,6 +25,7 @@
     <Property Name="availablestatus" Type="varchar" MaxLength="20" />
     <Property Name="cid" Type="int" />
     <Property Name="bid" Type="int" />
+    <Property Name="photo" Type="varchar(max)" />
   </EntityType>
   <Association Name="FK__Product__bid__29572725">
     <End Role="Brands" Type="Self.Brands" Multiplicity="0..1" />

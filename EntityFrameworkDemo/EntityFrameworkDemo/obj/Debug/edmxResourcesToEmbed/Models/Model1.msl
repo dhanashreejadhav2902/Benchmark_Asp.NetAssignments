@@ -20,6 +20,7 @@
     <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="ProductDbModel.Product">
         <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="photo" ColumnName="photo" />
           <ScalarProperty Name="pid" ColumnName="pid" />
           <ScalarProperty Name="pname" ColumnName="pname" />
           <ScalarProperty Name="price" ColumnName="price" />

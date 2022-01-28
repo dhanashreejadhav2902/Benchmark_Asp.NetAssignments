@@ -5,7 +5,7 @@
 }
 
 <h2>Add Product</h2>
-<form action="/products/create" method="post">
+<form action="/products/create" method="post" enctype="multipart/form-data">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="pname">Product Name</label>
@@ -24,21 +24,45 @@
 
         <div class="form-group col-md-6">
             <label for="availablestatus">Available Status</label>
-            <input type="text" class="form-control" id="availablestatus" name="availablestatus" placeholder="enter product status here" />
+            <select class="form-control" id="availablestatus" name="availablestatus" placeholder="enter product status here">
+                <option value="">Please Select</option>
+                <option value="instock">InStock</option>
+                <option value="outofstock">OutOfStock</option>
+            </select>
         </div>
 
         <div class="form-group col-md-6">
             <label for="cid">Category ID</label>
-            <input type="text" class="form-control" id="cid" name="cid" placeholder="enter category id here" />
+            <select class="form-control" id="cid" name="cid" placeholder="enter category id here">
+                <option value="">Please Select</option>
+                @foreach (var cat in ViewBag.Categories)
+                {
+                    <option value="@cat.cid">@cat.cname</option>
+                }
+            </select>
         </div>
 
         <div class="form-group col-md-6">
             <label for="bid">Brand ID</label>
-            <input type="text" class="form-control" id="bid" name="bid" placeholder="enter brand id here" />
+            <select class="form-control" id="bid" name="bid" placeholder="enter brand id here">
+                <option value="">Please Select</option>
+                @foreach (var br in ViewBag.Brands)
+                {
+                    <option value="@br.bid">@br.bname</option>
+                }
+            </select>
         </div>
-    </div>
-    <br />
-     <button type="submit" class="btn btn-info">Add Product</button>
-    <a href="/products/index" class="btn btn-danger">Cancel</a>
-</form>
 
+            <!--
+           <div class="form-group col-md-6">
+            <label for="photo">Photo</label>
+            <input type="file" class="form-control-file" id="photo" name="photo"/>
+           </div>
+        -->
+
+
+    </div>
+        <br />
+        <button type="submit" class="btn btn-info">Add Product</button>
+        <a href="/products/index" class="btn btn-danger">Cancel</a>
+</form>

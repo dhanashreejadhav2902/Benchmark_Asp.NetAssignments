@@ -29,6 +29,7 @@
     <Property Name="bid" Type="Int32" />
     <NavigationProperty Name="Brand" Relationship="Self.FK__Product__bid__29572725" FromRole="Product" ToRole="Brands" />
     <NavigationProperty Name="Category" Relationship="Self.FK__Product__cid__286302EC" FromRole="Product" ToRole="Category" />
+    <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK__Product__bid__29572725">
     <End Role="Brands" Type="Self.Brand" Multiplicity="0..1" />
