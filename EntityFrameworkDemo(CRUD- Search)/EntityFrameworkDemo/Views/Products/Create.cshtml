@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Add Product</h2>
+<form action="/products/create" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="pname">Product Name</label>
+            <input type="text" class="form-control" id="pname" name="pname" placeholder="enter product name here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="price">Product Price</label>
+            <input type="text" class="form-control" id="price" name="price" placeholder="enter product price here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="dateofpurchase">Date Of Purchase</label>
+            <input type="date" class="form-control" id="dateofpurchase" name="dateofpurchase" placeholder="enter product purchase date here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="availablestatus">Available Status</label>
+            <input type="text" class="form-control" id="availablestatus" name="availablestatus" placeholder="enter product status here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="cid">Category ID</label>
+            <input type="text" class="form-control" id="cid" name="cid" placeholder="enter category id here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="bid">Brand ID</label>
+            <input type="text" class="form-control" id="bid" name="bid" placeholder="enter brand id here" />
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-info">Add Product</button>
+    <a href="/products/index" class="btn btn-danger">Cancel</a>
+</form>
