@@ -1,0 +1,72 @@
+﻿@model List<ClinicAppNew.Models.Patient>
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<br />
+
+<form class="form-inline">
+    <div class="form-group">
+        <label>Enter Name</label>
+        <input type="text" class="form-control" id="p.pname" name="p.pname">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Enter Mobile</label>
+        <input type="text" class="form-control" id="p.mobile" name="p.mobile">
+    </div>
+    <br />
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" id="p.email" name="p.email">
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label>Doctor Name</label>
+
+        <select class="form-control" id="p.did" name="p.did">
+            <option value="">Please Select option</option>
+            @foreach (var doc in ViewBag.doc)
+            {
+                <option value="@doc.did">@doc.dname</option>
+            }
+
+        </select>
+
+    </div>
+    <br />
+
+
+    <button type="submit" class="btn-btn-warning">Go</button>
+    @*create code copy paste*@
+
+</form>
+@*index view table that code copy paste*@
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Doctor Name</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.pid</td>
+            <td>@item.pname</td>
+            <td>@item.mobile</td>
+            <td>@item.email</td>
+            <td>@item.Doctor.dname</td>
+
+        </tr>
+
+    }
+</table>
+<a class="btn btn-info fa fa-backward" style="background-color:darkcyan;color:black; float:center;" href="\Patient\Index"> Back</a>
+<br />
+
+
+ 

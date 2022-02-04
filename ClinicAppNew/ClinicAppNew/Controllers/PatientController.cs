@@ -159,6 +159,20 @@ namespace ClinicAppNew.Controllers
             return RedirectToAction("Index");
         }
 
-       
+
+
+        public ActionResult Search(Patient p)
+        {
+            ViewBag.s = p;
+            List<Patient> patient = db.Patients
+           .Where(s => s.pname == p.pname || p.pname == null)
+           .Where(s => s.mobile == p.mobile || p.mobile == null)
+           .Where(s => s.email == p.email || p.email == null)
+           .Where(s => s.did == p.did || p.did == null)
+           .ToList();
+            ViewBag.doc = db.Doctors;
+
+            return View(patient);
+        }
     }
 }

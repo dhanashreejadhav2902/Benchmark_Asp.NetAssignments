@@ -13,6 +13,7 @@ namespace ClinicAppNew.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
+    
     public partial class Doctor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,7 +26,7 @@ namespace ClinicAppNew.Models
         public int did { get; set; }
 
         
-        [Required(ErrorMessage = "Doctor name can not be blank")]
+        //[Required(ErrorMessage = "Doctor name can not be blank")]
         public string dname { get; set; }
 
         //[Required(ErrorMessage = "Phone number can not be blank")]
