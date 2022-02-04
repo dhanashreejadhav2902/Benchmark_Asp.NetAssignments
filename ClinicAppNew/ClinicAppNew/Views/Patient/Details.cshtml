@@ -1,0 +1,54 @@
+﻿@model ClinicAppNew.Models.Patient
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Details</h2>
+<h2>Patient Details</h2>
+<table class="table">
+    <tr>
+        <th>Patient ID</th>
+        <td>@Model.pid</td>
+    </tr>
+
+    <tr>
+        <th>Patient Name</th>
+        <td>@Model.pname</td>
+    </tr>
+
+    <tr>
+        <th>Mobile</th>
+        <td>@Model.mobile</td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <td>@Model.email</td>
+    </tr>
+
+    <tr>
+        <th>Address</th>
+        <td>@Model.paddress</td>
+    </tr>
+
+    <tr>
+        <th>Health Insurance</th>
+        <td>@Model.healthinsurance</td>
+    </tr>
+
+    <tr>
+        <th>Patient Description</th>
+        <td>@Model.description</td>
+    </tr>
+
+    <tr>
+        <th>Doctor</th>
+        <td>@Model.Doctor.dname</td>
+    </tr>
+</table>
+
+<a href="/patient/index">Back To Home</a>
+
+
+

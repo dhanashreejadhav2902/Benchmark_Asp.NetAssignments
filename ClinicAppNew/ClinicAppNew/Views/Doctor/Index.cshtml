@@ -1,0 +1,217 @@
+﻿@model List<ClinicAppNew.Models.Doctor>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+
+    
+
+   
+<a href="/doctor/create" class="btn btn-info text-white">Add Doctor</a>
+
+
+    <form class="form-check-inline text-center" action="/doctor/index">
+        <label for="search" class="m-1"></label>
+        <input type="search" class="form-control m-1" id="search" name="search" value="@ViewBag.Search" placeholder="Search here">
+        <button type="submit" class="btn btn-info text-white">Search</button>
+    </form>
+
+    <table class="table">
+        <tr class="table-secondary">
+
+            <!--<th style="width:5%">Photo</th>-->
+
+            <th style="width:5%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=did&icon=fa-sort-asc&pageno=1">Doctor ID</a>
+                    if (ViewBag.sortcolm == "did")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=did&icon=fa-sort-desc&pageno=1">Doctor ID</a>
+                    if (ViewBag.sortcolm == "did")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+
+
+            <th style="width:13%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=dname&icon=fa-sort-asc&pageno=1">Doctor Name</a>
+                    if (ViewBag.sortcolm == "dname")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=dname&icon=fa-sort-desc&pageno=1">Doctor Name</a>
+                    if (ViewBag.sortcolm == "dname")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+
+            <th style="width:10%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=emaile&icon=fa-sort-asc&pageno=1">Email</a>
+                    if (ViewBag.sortcolm == "email")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=email&icon=fa-sort-desc&pageno=1">Email</a>
+                    if (ViewBag.sortcolm == "email")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+            <th style="width:12%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=mobile&icon=fa-sort-asc&pageno=1">Mobile</a>
+                    if (ViewBag.sortcolm == "mobile")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=mobile&icon=fa-sort-desc&pageno=1">Mobile</a>
+                    if (ViewBag.sortcolm == "mobile")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+
+
+            <th style="width:10%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=specialist&icon=fa-sort-asc&pageno=1">Specialist</a>
+                    if (ViewBag.sortcolm == "specialist")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=specialist&icon=fa-sort-desc&pageno=1">Specialist</a>
+                    if (ViewBag.sortcolm == "specialist")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+
+
+
+            <th style="width:10%">
+                @if (ViewBag.icon == "fa-sort-desc")
+                {
+                    <a href="/doctor/index?sortcolm=address&icon=fa-sort-asc&pageno=1">Address</a>
+                    if (ViewBag.sortcolm == "address")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+                else
+                {
+                    <a href="/doctor/index?sortcolm=address&icon=fa-sort-desc&pageno=1">Address</a>
+                    if (ViewBag.sortcolm == "address")
+                    {
+                        <i class="fa @ViewBag.icon"></i>
+                    }
+                }
+            </th>
+
+            <th>Option</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.did</td>
+                <td>@item.dname</td>
+                <td>@item.email</td>
+                <td>@item.mobile</td>
+                <td>@item.specialist</td>
+                <td>@item.address</td>
+                <td>
+                    <a style="padding : 20px " href="/doctor/edit/@item.did"><i class="fa fa-edit fa-2x"></i></a>
+                    <a style="padding : 20px " href="/doctor/details/@item.did"><i class="fa fa-address-book fa-2x"></i></a>
+
+                    @Html.ActionLink(" ", // <-- Link text
+                     "Delete", // <-- Action Method Name
+                     "Doctor", // <-- Controller Name
+                     new { id = item.did }, // <-- Route value
+                     new {@class = "fa fa-trash fa-2x", style = "padding : 20px ", onclick = "return confirm('Are sure wants to delete?');" } // <-- htmlArguments
+                    )
+
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="9">
+                @{
+                    int prevpage = ViewBag.pageno - 1;
+                    if (prevpage <= 0)
+                    {
+                        prevpage = 1;
+                    }
+
+                    int nextpage = ViewBag.pageno + 1;
+                    if (nextpage > ViewBag.totalpage)
+                    {
+                        nextpage = ViewBag.totalpage;
+                    }
+
+
+
+                }
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="/doctor/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@prevpage">Prev</a>
+                    </li>
+
+                    @for (int i = 0; i < ViewBag.totalpage; i++)
+                    {
+
+                        if ((i + 1) == ViewBag.pageno)
+                        {
+
+                            <li class="page-item active">
+                                <a class="page-link" href="/doctor/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="/doctor/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@(i+1)">@(i+1)</a>
+                            </li>
+                        }
+                    }
+
+                    <li class="page-item">
+                        <a class="page-link" href="/doctor/index?sortcolm=@ViewBag.sortcolm&icon=@ViewBag.icon&pageno=@nextpage">Next</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+
+
+    </table>
+

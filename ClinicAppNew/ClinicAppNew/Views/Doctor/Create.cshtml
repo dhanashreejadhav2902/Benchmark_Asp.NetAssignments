@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Add Doctor Record</h2>
+<br>
+<form action="/doctor/create" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="dname">Doctor Name</label>
+            <input type="text" class="form-control" id="dname" name="dname" placeholder="enter Doctor name here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="email">Doctor Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="enter email here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="specialist">Specialist</label>
+            <select type="text" class="form-control" id="specialist" name="specialist" placeholder="enter speciality  here">
+                <option value="">Please Select</option>
+                <option value="cardiologists">Cardiologists</option>
+                <option value="dermatologists">Dermatologists</option>
+                <option value="allergists">Allergists</option>
+                <option value="physicians">Family Physicians</option>
+                <option value="nephrologists">Nephrologists</option>
+                <option value="pathologists">Pathologists</option>
+                <option value="physiatrists">Physiatrists</option>
+                <option value="radiologists">Radiologists</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="enter mobile here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="address">Address</label>
+            <input class="form-control" id="address" name="address" placeholder="enter address here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input class="form-control" id="descriptions" name="description" placeholder="enter description here">
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-info">Add</button>
+    <a href="/doctor/index" class="btn btn-danger">Cancel</a>
+</form>
+
+
+

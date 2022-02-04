@@ -1,0 +1,70 @@
+﻿@model ClinicAppNew.Models.Patient
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Edit Patient</h2>
+<form action="/patient/edit/@Model.pid" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="pname">Patient Name</label>
+            <input type="hidden" name="pid" value="@Model.pid" />
+            <input type="text" class="form-control" id="pname" name="pname" value="@Model.pname" placeholder="enter patient name here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" value="@Model.mobile" placeholder="enter mobile here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="email">Patient Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="@Model.email" placeholder="enter email here" />
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <label for="paddress">Address</label>
+            <input class="form-control" id="paddress" name="paddress" value="@Model.paddress" placeholder="enter address here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input class="form-control" id="descriptions" name="description" value="@Model.description" placeholder="enter description here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="healthinsurance">Health Insurance</label>
+            <select class="form-control" id="healthinsurance" name="healthinsurance" value="@Model.healthinsurance" placeholder="enter data here">
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="did">Doctor ID</label>
+            <select class="form-control" id="did" name="did" value="@Model.did" placeholder="enter Doctor doctor name">
+
+                <option value="">Please Select</option>
+                @foreach (var d in ViewBag.Doctor)
+                {
+                    if (d.did == Model.did)
+                    {
+                        <option value="@d.did" selected="selected">@d.dname</option>
+                    }
+                    else
+                    {
+                        <option value="@d.did">@d.dname</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-info">Edit Patient</button>
+    <a href="/patient/index" class="btn btn-danger">Cancel</a>
+</form>
+
+

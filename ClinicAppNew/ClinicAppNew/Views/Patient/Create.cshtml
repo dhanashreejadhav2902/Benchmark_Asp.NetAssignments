@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Add Patient</h2>
+<form action="/patient/create" method="post" enctype="multipart/form-data">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="pname">Patient Name</label>
+            <input type="text" class="form-control" id="pname" name="pname" placeholder="enter name here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="enter mobile here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="email">Patient Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="enter email here" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="paddress">Address</label>
+            <input class="form-control" id="paddress" name="paddress" placeholder="enter address here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="description">Description</label>
+            <input class="form-control" id="descriptions" name="description" placeholder="enter description here">
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="healthinsurance">Health Insurance</label>
+            <select class="form-control" id="healthinsurance" name="healthinsurance" placeholder="enter data here">
+                <option value="">Please Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="did">Doctor</label>
+            <select class="form-control" id="did" name="did" placeholder="enter doctor name here">
+                <option value="">Please Select</option>
+                @foreach (var d in ViewBag.Doctor)
+                {
+                    <option value="@d.did">@d.dname</option>
+                }
+            </select>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-info">Add Patient</button>
+    <a href="/patient/index" class="btn btn-danger">Cancel</a>
+</form>

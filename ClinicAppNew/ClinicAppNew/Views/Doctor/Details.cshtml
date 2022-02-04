@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h2>Doctor Details</h2>
+<table class="table">
+    <tr>
+        <th>Doctor ID</th>
+        <td>@Model.did</td>
+    </tr>
+
+    <tr>
+        <th>Doctor Name</th>
+        <td>@Model.dname</td>
+    </tr>
+
+    <tr>
+        <th>Doctor Specality</th>
+        <td>@Model.specialist</td>
+    </tr>
+
+    <tr>
+        <th>Mobile</th>
+        <td>@Model.mobile</td>
+    </tr>
+
+    <tr>
+        <th>Email</th>
+        <td>@Model.email</td>
+    </tr>
+
+    <tr>
+        <th>Address</th>
+        <td>@Model.address</td>
+    </tr>
+
+    <tr>
+        <th>Description</th>
+        <td>@Model.description</td>
+    </tr>
+
+</table>
+
+<a href="/doctor/index"><i class="fa fa-chevron-circle-left fa-2x"></i></a>
+
+
